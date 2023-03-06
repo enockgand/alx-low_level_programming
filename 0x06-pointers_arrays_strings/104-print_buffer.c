@@ -1,49 +1,52 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
 
 /**
- * print_buffer - prints a buffer
- * @size: size in bytes of buffer
+ * print_buffer - Prints a buffer
  * @b: buffer
- * Return: Always 0
+ * @size: numbrt of bytes of buffer
+ * Return: void
  */
 void print_buffer(char *b, int size)
-/* print the content of size bytes of the buffer pointed by b */
 {
-	int a, k, m;
+	int x, i;
 
-	a = 0;
+	for (x = 0; x < size; x += 10)
+	{
+		printf("%08x: ", x);
+
+		for (i = 0; i < 10; i++)
+		{
+			if ((i + x) >= size)
+				printf("  ");
+
+			else
+				printf("%02x", *(b + i + x));
+
+			if ((i % 2) != 0 && i != 0)
+				printf(" ");
+		}
+
+		for (i = 0; i < 10; i++)
+		{
+			if ((i + x) >= size)
+				break;
+
+			else if (*(b + i + x) >= 31 &&
+				 *(b + i + x) <= 126)
+				printf("%c", *(b + i + x));
+
+			else
+				printf(".");
+		}
+
+		if (x >= size)
+			continue;
+
+		printf("\n");
+	}
 
 	if (size <= 0)
-	{
 		printf("\n");
-		return;
-	}
-	while (a < size)
-	{
-		k = size - a < 10 ? size - a : 10;
-		printf("%08x: ", a);
-		for (m = 0; m < 10; m++)
-		{
-			if (m < k)
-				printf("%02x", *(b + a + m));
-			else
-				printf(" ");
-			if (m % 2)
-			{
-				printf(" ");
-			}
-		}
-		for (m = 0; m < k; m++)
-		{
-			int c = *(b + a + m);
-
-			if (c < 32 || c > 132)
-			{
-				c = ',';
-			}
-			printf("\n");
-			a += 10;
-		}
-	}
 }
+
