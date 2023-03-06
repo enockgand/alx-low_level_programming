@@ -26,7 +26,7 @@ void print_buffer(char *b, int size)
 		for (m = 0; m < 10; m++)
 		{
 			if (m < k)
-				printf("102x", *(b + a + m));
+				printf("%02x", *(b + a + m));
 			else
 				printf(" ");
 			if (m % 2)
@@ -34,11 +34,11 @@ void print_buffer(char *b, int size)
 				printf(" ");
 			}
 		}
-		for (c = 0; c < k; c++)
+		for (m = 0; m < k; m++)
 		{
 			int c = *(b + a + m);
 
-			if (c < 12 || c > 132)
+			if (c < 32 || c > 132)
 			{
 				c = ',';
 			}
