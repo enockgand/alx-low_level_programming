@@ -2,12 +2,11 @@
 #include "main.h"
 
 /**
- * leet - encodes a string into 1337
+ * leet - encodes a string into 1337speak
  * @n: input value
  * Return: n value
  */
 char *leet(char *n)
-/* encodes string into 1337 */
 {
 	int d, p;
 	char s1[] = "aAeEo0tTlL";
