@@ -4,7 +4,7 @@
 /**
  * leet - encodes a string into 1337
  * @n: input value
- * Return: n value
+ * Return: Always 0
  */
 char *leet(char *n)
 {
@@ -14,7 +14,7 @@ char *leet(char *n)
 
 	for (d = 0; n[d] != '\0'; d++)
 	{
-		for (p = 0; p < 10; p++)
+		for (p = 0; p <= 9; p++)
 		{
 			if (n[d] == s1[p])
 			{
